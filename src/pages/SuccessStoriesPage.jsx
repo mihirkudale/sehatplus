@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 const STORIES = [
   {
@@ -29,36 +29,99 @@ const STORIES = [
     text: 'Dr. Ambika Nair was my consultant dietician when I was admitted to Jupiter Hospital Pune. The diet changes were gradual and sustainable, and I never felt starved throughout the process.',
   },
   {
-    name: 'Priya Sharma',
-    result: 'Diabetes & Weight Managed',
+    name: 'Mr. Ramesh Bhupathy',
+    result: 'Cholesterol Managed, 7 Kg Lost',
     img: 'https://www.sehatplus.in/wp-content/uploads/2024/06/te2.jpg',
-    text: 'After years of struggling with Type 2 diabetes, the Medical Nutrition Therapy program at Sehat+ helped me reduce my HbA1c from 9.2 to 6.8 in just 4 months.',
+    text: 'Lost 7 kg in 4 months (75 to 68 kg). My LDL dropped from 122 to 54 and total cholesterol came down from 180 to 112. A complete health turnaround.',
   },
   {
-    name: 'Kavita Joshi',
-    result: 'PCOS Controlled',
+    name: 'Madhuri',
+    result: '12 Kg Weight Loss',
     img: 'https://www.sehatplus.in/wp-content/uploads/2024/06/te3.jpg',
-    text: 'My PCOS symptoms were unmanageable until I joined Sehat+. Mrs. Ambika\'s personalized diet plan helped regulate my hormones naturally without medication.',
+    text: 'Lost 12 kg with remarkable improvement in skin texture. I now have sustained energy levels throughout the day — something I hadn\'t felt in years.',
   },
   {
-    name: 'Suresh Patil',
-    result: '18 Kg Weight Loss',
+    name: 'Kusum',
+    result: 'Asthma Resolved in 3 Months',
     img: 'https://www.sehatplus.in/wp-content/uploads/2024/06/te4.jpg',
-    text: 'The structured diet plan from Sehat+ was easy to follow even with my hectic work schedule. I lost 18 kg in 6 months and feel more energetic than ever.',
+    text: 'My severe asthma resolved completely within 3 months through dietary modifications and exercise. Muscle mass improved from 32.8 to 34.5.',
   },
   {
-    name: 'Anita Kulkarni',
-    result: 'Cholesterol & BP Normalised',
+    name: 'Raju',
+    result: 'HbA1c Reduced to 5.2%',
     img: 'https://www.sehatplus.in/wp-content/uploads/2024/06/te5.jpg',
-    text: 'Post my angioplasty, the doctors recommended a strict diet. Sehat+ helped me design a heart-healthy plan that brought my cholesterol and BP to normal within 3 months.',
+    text: 'Lost 6–7 kg in 3 months and my HbA1c came down to 5.2%. My walking capacity improved from just 5 minutes to 45 minutes. Life-changing results.',
   },
   {
-    name: 'Ravi Deshmukh',
-    result: '15 Kg Lost, Asthma Improved',
+    name: 'Rahul',
+    result: 'HbA1c 10.9% → 5.10% in 6 Months',
     img: 'https://www.sehatplus.in/wp-content/uploads/2024/06/te6.jpg',
-    text: 'I was suffering from obesity-induced asthma. After following the Sehat+ weight management program for 5 months, I lost 15 kg and my asthma episodes reduced significantly.',
+    text: 'My HbA1c dropped from 10.9% to 5.10% in 6 months. Diabetes medications were discontinued and fat percentage reduced from 25.5% to 22.9%.',
+  },
+  {
+    name: 'Smita Kate',
+    result: '9 Kg Lost in 2 Months',
+    img: 'https://www.sehatplus.in/wp-content/uploads/2022/12/Smita-Kate-Icon.png',
+    text: 'Lost 9 kg in just 2 months. Acne reduced noticeably and hair growth improved significantly. I now maintain sustainable eating habits with ease.',
+  },
+  {
+    name: 'Riya Bora',
+    result: '3 Kg Lost in 3 Months',
+    img: 'https://www.sehatplus.in/wp-content/uploads/2022/12/Riya-Bora-Icon.png',
+    text: 'At just 8 years old, I lost 3 kg in 3 months. I learned portion control and healthy eating principles that I now carry forward in my daily life.',
   },
 ];
+
+const CAROUSEL_IMAGES = Array.from({ length: 18 }, (_, i) => ({
+  src: `https://www.sehatplus.in/wp-content/uploads/2024/06/te${i + 1}.jpg`,
+  alt: `Testimonial ${i + 1}`,
+}));
+
+function TestimonialCarousel() {
+  const [idx, setIdx] = useState(0);
+  const timerRef = useRef(null);
+  const visible = 4;
+  const max = CAROUSEL_IMAGES.length - visible;
+
+  const next = () => setIdx(i => Math.min(i + 1, max));
+  const prev = () => setIdx(i => Math.max(i - 1, 0));
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setIdx(i => (i >= max ? 0 : i + 1));
+    }, 3000);
+    return () => clearInterval(timerRef.current);
+  }, [max]);
+
+  return (
+    <div className="py-16 bg-white border-b border-gray-100">
+      <div className="container mx-auto px-6">
+        <p className="text-[11px] font-black uppercase tracking-[5px] text-[var(--sp-gold)] mb-6 text-center">Testimonials</p>
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: -(idx * (100 / visible)) + '%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 35 }}
+          >
+            {CAROUSEL_IMAGES.map((img, i) => (
+              <div key={i} className="shrink-0" style={{ width: `calc(${100 / visible}% - 12px)` }}>
+                <img src={img.src} alt={img.alt} className="w-full aspect-[4/3] object-cover rounded-2xl shadow-md" />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        <div className="flex justify-center gap-3 mt-8">
+          <button onClick={prev} disabled={idx === 0} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[var(--sp-gold)] hover:text-white hover:border-[var(--sp-gold)] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            <ChevronLeft size={18} />
+          </button>
+          <button onClick={next} disabled={idx >= max} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[var(--sp-gold)] hover:text-white hover:border-[var(--sp-gold)] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function SuccessStoriesPage() {
   return (
@@ -85,6 +148,8 @@ export default function SuccessStoriesPage() {
           </motion.div>
         </div>
       </div>
+
+      <TestimonialCarousel />
 
       <div className="py-24">
         <div className="container mx-auto px-6">

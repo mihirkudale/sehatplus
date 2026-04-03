@@ -81,7 +81,7 @@ export default function AboutSehat() {
                       <p>Your one-stop destination for your dietary lifestyle change needs.</p>
                       <p>
                         In this age of the new normal and things moving faster up the ladder of life than imagined, 
-                        taking care of our body’s dietary needs seems to be a challenging task for most. 
+                        taking care of our body's dietary needs seems to be a challenging task for most. 
                       </p>
                       <p>
                         Sehatplus is an advanced wellness nutrition centre where you are provided with proper 

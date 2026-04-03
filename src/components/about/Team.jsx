@@ -19,12 +19,12 @@ const TEAM = [
   },
   {
     name: 'Miloni Bhandari',
-    role: 'Clinical Nutritionist',
+    role: 'Senior Consulting Nutritionist',
     image: 'https://www.sehatplus.in/wp-content/uploads/2024/06/bhandari.jpg',
   },
   {
     name: 'Dhanashri',
-    role: 'Clinical Nutritionist',
+    role: 'Experienced Nutritionist',
     image: 'https://www.sehatplus.in/wp-content/uploads/2024/06/dhanashri.jpg',
   }
 ];

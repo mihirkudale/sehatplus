@@ -131,11 +131,11 @@ const Footer = () => {
             <ul className="space-y-5">
               {[
                 'Wellness Nutrition',
-                'Medical Therapy',
-                'Weight Loss',
-                'Corporate Program',
-                'Consultation',
-                'Life Coach'
+                'Medical Nutrition Therapy',
+                'Weight Management',
+                'Corporate Nutrition Program',
+                'Online Consultation',
+                'My Life Coach'
               ].map((service) => (
                 <li key={service}>
                   <Link to="#" className="text-gray-400 hover:text-white transition-colors text-sm font-black uppercase tracking-widest">
@@ -208,6 +208,7 @@ const Footer = () => {
           <p>© {currentYear} SEHAT PLUS. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-10">
             <a href="#" className="hover:text-white transition-colors">Disclaimer</a>
+            <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
             <a href="#" className="hover:text-white transition-colors">Refunds</a>
           </div>

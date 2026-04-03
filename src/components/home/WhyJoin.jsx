@@ -4,7 +4,7 @@ import SectionShell from './SectionShell';
 
 const REASONS = [
   'An advanced medical nutrition therapy centre',
-  '27+ years of nutrition and health services',
+  '28+ years of nutrition and health services',
   '100+ results in health transformations',
   'Expert team of Clinical Nutritionists',
   'Sustainable lifestyle management',

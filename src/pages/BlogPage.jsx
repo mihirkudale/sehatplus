@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 const POSTS = [
   {
-    title: "How to Read Food Labels: A Beginner’s Guide",
+    title: "How to Read Food Labels: A Beginner's Guide",
     date: 'April 4, 2025',
-    excerpt: 'Understanding food labels can feel overwhelming at first, but it’s a key step toward making informed, healthier choices.',
+    excerpt: "Understanding food labels can feel overwhelming at first, but it's a key step toward making informed, healthier choices.",
     image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800',
     category: 'Nutrition'
   },
@@ -17,11 +17,25 @@ const POSTS = [
     category: 'Nutrition'
   },
   {
-    title: 'Functional Foods for Longevity',
-    date: 'Feb 12, 2024',
-    excerpt: 'Functional foods are those that have a potentially positive effect on health beyond basic nutrition.',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
-    category: 'Health'
+    title: 'Why Nutritional Supplements',
+    date: 'August 4, 2023',
+    excerpt: 'I can do without them, do I really need to take them? This is the most common question asked by…',
+    image: 'https://www.sehatplus.in/wp-content/uploads/2023/08/Supplements-featured-image-1536x1024.jpg',
+    category: 'Nutrition'
+  },
+  {
+    title: 'Glucose Intake In Pregnancy',
+    date: 'June 10, 2023',
+    excerpt: 'Managing sugar consumption during pregnancy is essential for both mother and baby — here is what you need to know about weight gain and blood glucose.',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800',
+    category: 'Nutrition'
+  },
+  {
+    title: 'Beat The Heat with These Summer Foods',
+    date: 'April 24, 2023',
+    excerpt: 'As temperatures soar, the right foods can keep you cool and hydrated. Discover the best summer foods and minimum hydration strategies to beat the heat.',
+    image: 'https://images.unsplash.com/photo-1519996529931-28324d5a630e?auto=format&fit=crop&q=80&w=800',
+    category: 'Nutrition'
   }
 ];
 

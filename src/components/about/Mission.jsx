@@ -42,7 +42,7 @@ export default function Mission() {
                   Sehatplus is an advanced wellness nutrition centre where you are provided with proper nutritional guidance by experienced nutritionists. solutions are provided accordingly.
                 </p>
                 <p>
-                  In this age of the new normal and things moving faster up the ladder of life than imagined, taking care of our body’s dietary needs seems to be a challenging task for most. 
+                  In this age of the new normal and things moving faster up the ladder of life than imagined, taking care of our body's dietary needs seems to be a challenging task for most. 
                 </p>
                 <p>
                   Nutrition forms the basis for any health parameters. Dietary patterns and lifestyle have a significant impact on health. This is where Sehat+ steps in to provide professional, scientific, and sustainable solutions.

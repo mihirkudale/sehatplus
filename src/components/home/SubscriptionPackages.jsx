@@ -9,7 +9,7 @@ const PACKAGES = [
     gst: '+ 18% GST',
     sessions: '3 Sessions',
     validity: '1 month',
-    benefits: ['Learn to make healthy food choices']
+    benefits: ['Learn to make healthy food choices', 'Free E-PDF']
   },
   {
     name: 'Basic Package',
@@ -25,6 +25,14 @@ const PACKAGES = [
     gst: '+ 18% GST',
     sessions: '18 Sessions',
     validity: '6 months',
+    benefits: ['Personalized WhatsApp group with Sehat Plus team']
+  },
+  {
+    name: 'Signature Package',
+    price: '30000/-',
+    gst: '+ 18% GST',
+    sessions: '9 Sessions',
+    validity: '3 months',
     benefits: ['Personalized WhatsApp group with Sehat Plus team']
   },
   {
@@ -51,7 +59,7 @@ export default function SubscriptionPackages() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {PACKAGES.map((pkg, idx) => (
             <motion.div 
               key={idx} 

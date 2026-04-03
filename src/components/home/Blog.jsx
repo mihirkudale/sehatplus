@@ -3,7 +3,7 @@ import { Calendar, ArrowRight } from 'lucide-react';
 
 const POSTS = [
   {
-    title: 'How to Read Food Labels: A Beginner’s Guide',
+    title: 'How to Read Food Labels: A Beginner's Guide',
     date: 'April 4, 2025',
     image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80',
     excerpt: 'Understanding nutritional labels is the first step towards making informed food choices...'

@@ -13,7 +13,7 @@ const SERVICE_DATA = {
     title: 'Medical Nutrition Therapy',
     tag: 'Therapeutic | Clinical',
     image: 'https://www.sehatplus.in/wp-content/uploads/2022/12/medical-nutrition-therapy-banner-1.png',
-    desc: 'Medical nutrition therapy (MNT) is a type of nutrition counseling that is provided to people who have certain medical conditions. It involves a detailed assessment of the person’s nutritional status.',
+    desc: "Medical nutrition therapy (MNT) is a type of nutrition counseling that is provided to people who have certain medical conditions. It involves a detailed assessment of the person's nutritional status.",
     benefit: 'Chronic Disease Management, Post-op Recovery'
   },
   'weight-management': {

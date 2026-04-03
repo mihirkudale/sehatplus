@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Plus, Minus } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X, Plus, Minus } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import TopBar from './TopBar';
 import sehatplusLogo from '@assets/sehatplus-logo.png';
@@ -35,7 +35,7 @@ const Navbar = () => {
     { name: 'School Nutrition Program', to: '/school-nutrition-program' },
     { name: 'Online Consultation', to: '/online-consultation' },
     { name: 'Hospital Dietetic Department Setup', to: '/hospital-dietetic-department-setup' },
-    { name: 'Sehat+ Academia', to: '/academics' },
+    { name: 'Sehat+ Academia', to: '/academics', children: [{ name: 'RD Examination', to: '/rd-examination-syllabus-revision' }] },
     { name: 'My Life Coach', to: '/my-life-coach' },
   ]), []);
 
@@ -45,7 +45,6 @@ const Navbar = () => {
     { name: 'Services', to: '#', hasDropdown: true },
     { name: 'Success Stories', to: '/success-stories' },
     { name: 'Blog', to: '/blog' },
-    { name: 'Achievements', to: '/achievements' },
     { name: 'Media', to: '/media' },
     { name: 'FAQ', to: '/faq' },
   ];
@@ -95,13 +94,29 @@ const Navbar = () => {
                   <div className={`absolute left-0 top-full pt-4 transition-all duration-300 ${activeSubmenu === 'services' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
                     <div className="w-[300px] bg-white shadow-2xl rounded-sm border-t-2 border-[var(--sp-gold)] py-3 px-1">
                       {services.map((service) => (
-                        <Link
-                          key={service.name}
-                          to={service.to}
-                          className="block px-5 py-2.5 text-[13px] font-semibold text-gray-700 hover:bg-gray-50 hover:text-[var(--sp-gold)] transition-colors border-b border-gray-50 last:border-0"
-                        >
-                          {service.name}
-                        </Link>
+                        service.children ? (
+                          <div key={service.name} className="relative group/nested">
+                            <div className="flex items-center justify-between px-5 py-2.5 text-[13px] font-semibold text-gray-700 hover:bg-gray-50 hover:text-[var(--sp-gold)] transition-colors border-b border-gray-50 cursor-pointer">
+                              <Link to={service.to} className="flex-1">{service.name}</Link>
+                              <ChevronRight size={12} className="text-gray-400 shrink-0" />
+                            </div>
+                            <div className="absolute left-full top-0 w-[220px] bg-white shadow-2xl rounded-sm border-t-2 border-[var(--sp-gold)] py-3 px-1 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-200">
+                              {service.children.map((child) => (
+                                <Link key={child.name} to={child.to} className="block px-5 py-2.5 text-[13px] font-semibold text-gray-700 hover:bg-gray-50 hover:text-[var(--sp-gold)] transition-colors">
+                                  {child.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={service.name}
+                            to={service.to}
+                            className="block px-5 py-2.5 text-[13px] font-semibold text-gray-700 hover:bg-gray-50 hover:text-[var(--sp-gold)] transition-colors border-b border-gray-50 last:border-0"
+                          >
+                            {service.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
@@ -206,16 +221,27 @@ const Navbar = () => {
                   
                   {/* Mobile Submenu */}
                   {link.hasDropdown && activeSubmenu === link.name && (
-                    <div className="flex flex-col gap-4 py-4 pl-4 border-l border-[var(--sp-gold)]/30 mt-2 bg-white/5 rounded-r-md">
+                    <div className="flex flex-col gap-1 py-4 pl-4 border-l border-[var(--sp-gold)]/30 mt-2 bg-white/5 rounded-r-md">
                       {services.map((service) => (
-                        <Link 
-                          key={service.name}
-                          to={service.to}
-                          className="text-sm font-medium text-gray-300 hover:text-[var(--sp-gold)] transition-colors"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {service.name}
-                        </Link>
+                        <div key={service.name}>
+                          <Link
+                            to={service.to}
+                            className="block py-2 text-sm font-medium text-gray-300 hover:text-[var(--sp-gold)] transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {service.name}
+                          </Link>
+                          {service.children && service.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              to={child.to}
+                              className="block py-1.5 pl-4 text-xs font-medium text-gray-500 hover:text-[var(--sp-gold)] transition-colors"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              ↳ {child.name}
+                            </Link>
+                          ))}
+                        </div>
                       ))}
                     </div>
                   )}

@@ -12,7 +12,7 @@ const SERVICES = [
   },
   { 
     title: 'Medical Nutrition Therapy', 
-    desc: 'Medical nutrition therapy (MNT) is a type of nutrition counseling that is provided to people who have certain medical conditions. It involves a detailed assessment of the person’s nutritional status.', 
+    desc: 'Medical nutrition therapy (MNT) is a type of nutrition counseling that is provided to people who have certain medical conditions. It involves a detailed assessment of the person's nutritional status.', 
     to: '/medical-nutrition-therapy',
     icon: 'https://www.sehatplus.in/wp-content/themes/adama/public/playground_assets/hospital.svg'
   },
@@ -30,7 +30,7 @@ const SERVICES = [
   },
   { 
     title: 'Corporate Nutrition Program', 
-    desc: 'With this program, each employee’s health is optimized through nutritional counseling, healthy eating tips, and lifestyle modifications.', 
+    desc: 'With this program, each employee's health is optimized through nutritional counseling, healthy eating tips, and lifestyle modifications.', 
     to: '/corporate-nutrition-program',
     icon: 'https://www.sehatplus.in/wp-content/themes/adama/public/playground_assets/coporate.svg'
   },

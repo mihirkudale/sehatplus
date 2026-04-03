@@ -76,7 +76,7 @@ export default function Welcome() {
                     </h2>
                     <div className="space-y-4 text-gray-500 leading-relaxed text-[17px] font-medium">
                       <p>
-                        Your one-stop destination for your dietary lifestyle change needs. In this age of the new normal and things moving faster up the ladder of life than imagined, taking care of our body’s dietary needs seems to be a challenging task for most.
+                        Your one-stop destination for your dietary lifestyle change needs. In this age of the new normal and things moving faster up the ladder of life than imagined, taking care of our body's dietary needs seems to be a challenging task for most.
                       </p>
                       <p>
                         Many of us find it difficult to understand the changing dietary needs of our bodies with our changing roles. This results in nutritional deficiencies and imbalances, leading to severe diseases. To stay fit, you need a customized diet chart from a wellness nutritionist.

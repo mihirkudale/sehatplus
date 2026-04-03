@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ChevronRight, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ChevronRight, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function ContactPage() {
@@ -32,24 +32,30 @@ export default function ContactPage() {
       <div className="pt-24 pb-32">
         <div className="container mx-auto px-6">
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
             {[
-              { 
-                icon: Phone, 
-                title: 'Phone Number', 
+              {
+                icon: Phone,
+                title: 'Phone Number',
                 details: ['+91 9011256500', '+91 7666729164'],
                 color: 'bg-[#f8f5f2]'
               },
-              { 
-                icon: MapPin, 
-                title: 'Office Address', 
+              {
+                icon: MapPin,
+                title: 'Office Address',
                 details: ['305, Seasons Business Square,', 'Opposite Kothari Hundai Showroom,', 'Aundh, Pune-411007'],
                 color: 'bg-white shadow-xl scale-105'
               },
-              { 
-                icon: Mail, 
-                title: 'Email Address', 
+              {
+                icon: Mail,
+                title: 'Email Address',
                 details: ['info@sehatplus.in'],
+                color: 'bg-[#f8f5f2]'
+              },
+              {
+                icon: Clock,
+                title: 'Work Hours',
+                details: ['Mon – Fri: 10:00 AM – 6:00 PM', 'Saturday: Closed', 'Sunday: Closed'],
                 color: 'bg-[#f8f5f2]'
               }
             ].map((item, i) => (
@@ -98,17 +104,8 @@ export default function ContactPage() {
                     <input type="email" className="w-full bg-gray-50 border-2 border-transparent focus:border-[var(--sp-gold)] focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all font-medium" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-4">Service</label>
-                    <select className="w-full bg-gray-50 border-2 border-transparent focus:border-[var(--sp-gold)] focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all font-medium appearance-none">
-                      <option>Wellness Nutrition</option>
-                      <option>Medical Nutrition Therapy</option>
-                      <option>Weight Management</option>
-                      <option>Nutrition for Skin And Hair</option>
-                      <option>Sports Nutrition Program</option>
-                      <option>Corporate Nutrition Program</option>
-                      <option>School Nutrition Program</option>
-                      <option>Online Consultation</option>
-                    </select>
+                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-4">Subject</label>
+                    <input type="text" className="w-full bg-gray-50 border-2 border-transparent focus:border-[var(--sp-gold)] focus:bg-white rounded-2xl px-6 py-4 outline-none transition-all font-medium" />
                   </div>
                 </div>
                 <div className="space-y-2">
