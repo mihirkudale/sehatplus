@@ -86,25 +86,29 @@ const Academia = () => {
       {/* ── Sticky Tab Bar ───────────────────────────────── */}
       <section className="sticky top-16 z-30 bg-background/95 backdrop-blur-sm border-b border-charcoal/10">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex overflow-x-auto gap-2 py-4 scrollbar-hide">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                    isActive
-                      ? 'bg-primary text-white'
-                      : 'bg-muted text-charcoal/60 hover:bg-muted/80 hover:text-charcoal'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {tab.label}
-                </button>
-              );
-            })}
+          <div className="relative">
+            <div className="flex overflow-x-auto gap-2 py-4 scrollbar-hide snap-x snap-mandatory">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all snap-start ${
+                      isActive
+                        ? 'bg-primary text-white'
+                        : 'bg-muted text-charcoal/60 hover:bg-muted/80 hover:text-charcoal'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+            {/* Fade hint — visible only on mobile to signal horizontal scroll */}
+            <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-background/95 to-transparent pointer-events-none lg:hidden" aria-hidden="true" />
           </div>
         </div>
       </section>

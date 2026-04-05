@@ -163,7 +163,7 @@ const Contact = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
         >
           {/* Google Map */}
-          <div className="relative rounded-[2rem] overflow-hidden border border-charcoal/5 shadow-sm h-full min-h-[450px] lg:min-h-[550px] bg-white group">
+          <div className="relative rounded-[2rem] overflow-hidden border border-charcoal/5 shadow-sm h-full min-h-[260px] sm:min-h-[360px] lg:min-h-[550px] bg-white group">
             <iframe
               title="Sehat Plus Clinic"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.265588856342!2d73.8930!3d18.5362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c05b6b2a8d4b%3A0x9f3b76f0da3b8e1!2sKoregaon%20Park%2C%20Pune%2C%20Maharashtra%20411001!5e0!3m2!1sen!2sin!4v1680000000000"

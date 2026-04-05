@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -7,6 +7,24 @@ const WHATSAPP_MESSAGE = "Hi! I'd like to book a nutrition consultation with Seh
 
 const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [bottomOffset, setBottomOffset] = useState(24);
+
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => {
+      // When soft keyboard opens, visualViewport.height shrinks.
+      // Push the button up so it stays above the keyboard.
+      const gap = window.innerHeight - vv.height - vv.offsetTop;
+      setBottomOffset(Math.max(24, gap + 24));
+    };
+    vv.addEventListener('resize', update);
+    vv.addEventListener('scroll', update);
+    return () => {
+      vv.removeEventListener('resize', update);
+      vv.removeEventListener('scroll', update);
+    };
+  }, []);
 
   const openWhatsApp = () => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -14,7 +32,7 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed right-6 z-50 flex flex-col items-end gap-3 transition-[bottom] duration-200" style={{ bottom: bottomOffset }}>
       <AnimatePresence>
         {showTooltip && (
           <motion.div

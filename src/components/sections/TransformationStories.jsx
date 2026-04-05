@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { UtensilsCrossed, TrendingUp, Activity } from 'lucide-react';
 
 const LINE_COUNT   = 14;
@@ -24,6 +24,7 @@ const LASER_OUTER = '#14532d';   // dark green for the bloom base
 const AnimatedLines = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const prefersReduced = useReducedMotion();
 
   const lines = Array.from({ length: LINE_COUNT }, (_, i) => {
     const t  = i / (LINE_COUNT - 1);
@@ -83,7 +84,7 @@ const AnimatedLines = () => {
         </filter>
       </defs>
 
-      {/* Base lines — draw in once on scroll */}
+      {/* Base lines — draw in once on scroll (instant when reduce-motion) */}
       {lines.map(({ d, drawDelay }, i) => (
         <motion.path
           key={`base-${i}`}
@@ -92,14 +93,14 @@ const AnimatedLines = () => {
           strokeWidth="0.8"
           strokeOpacity="0.10"
           fill="none"
-          initial={{ pathLength: 0, opacity: 0 }}
+          initial={{ pathLength: prefersReduced ? 1 : 0, opacity: prefersReduced ? 1 : 0 }}
           animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-          transition={{ duration: 1.6, delay: drawDelay, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={prefersReduced ? { duration: 0 } : { duration: 1.6, delay: drawDelay, ease: [0.25, 0.46, 0.45, 0.94] }}
         />
       ))}
 
-      {/* Laser outer bloom — wide soft halo */}
-      {isInView && lines.map(({ d, flowDelay }, i) => (
+      {/* Laser animations — omitted entirely when prefers-reduced-motion */}
+      {!prefersReduced && isInView && lines.map(({ d, flowDelay }, i) => (
         <motion.path
           key={`bloom-${i}`}
           d={d}
@@ -115,8 +116,7 @@ const AnimatedLines = () => {
         />
       ))}
 
-      {/* Laser mid ring */}
-      {isInView && lines.map(({ d, flowDelay }, i) => (
+      {!prefersReduced && isInView && lines.map(({ d, flowDelay }, i) => (
         <motion.path
           key={`mid-${i}`}
           d={d}
@@ -131,8 +131,7 @@ const AnimatedLines = () => {
         />
       ))}
 
-      {/* Laser sharp core */}
-      {isInView && lines.map(({ d, flowDelay }, i) => (
+      {!prefersReduced && isInView && lines.map(({ d, flowDelay }, i) => (
         <motion.path
           key={`core-${i}`}
           d={d}
