@@ -58,7 +58,7 @@ const InsightsArticles = () => {
           <h2 className="text-4xl md:text-[52px] font-serif text-charcoal leading-tight tracking-tight">
             Insights &amp; Articles
           </h2>
-          <p className="text-charcoal/55 text-sm max-w-lg mx-auto leading-relaxed">
+          <p className="text-charcoal/60 text-sm max-w-lg mx-auto leading-relaxed">
             Evidence-based perspectives on nutrition, wellness, and mindful living
           </p>
         </motion.div>
@@ -74,7 +74,7 @@ const InsightsArticles = () => {
             className="bg-white rounded-3xl p-10 border border-charcoal/5 shadow-sm flex flex-col justify-between cursor-pointer hover:shadow-md transition-shadow duration-300"
           >
             <div>
-              <div className="bg-[#587c6b] text-white text-[11px] font-medium px-4 py-1.5 rounded-full w-fit mb-8">
+              <div className="bg-primary text-white text-[11px] font-medium px-4 py-1.5 rounded-full w-fit mb-8">
                 Featured
               </div>
               <p className="text-primary text-xs font-semibold mb-3">{featured.tag}</p>

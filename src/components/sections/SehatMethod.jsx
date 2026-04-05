@@ -98,7 +98,7 @@ const SehatMethod = () => {
                   onClick={() => toggle(index)}
                   className="bg-white rounded-2xl p-5 md:p-8 border border-charcoal/8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300"
                 >
-                  <span className="text-[11px] font-semibold tracking-widest text-primary/70 uppercase">
+                  <span className="text-[11px] font-semibold tracking-widest text-[#D7B975] uppercase">
                     {step.step}
                   </span>
                   <h3 className="text-2xl md:text-3xl font-serif text-charcoal mt-2 mb-1">{step.title}</h3>
@@ -121,7 +121,7 @@ const SehatMethod = () => {
                           <ul className="space-y-2">
                             {step.bullets.map((item) => (
                               <li key={item} className="flex items-center gap-2 text-sm text-charcoal/60">
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#D7B975] flex-shrink-0" />
                                 {item}
                               </li>
                             ))}

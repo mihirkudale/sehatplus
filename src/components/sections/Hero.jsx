@@ -17,7 +17,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('https://sehatdemo.lovable.app/assets/hero-bg-CsGzs88x.jpg')",
+          backgroundImage: "url('/hero-bg.jpg')",
           filter: "blur(0px)" 
         }}
       />
@@ -31,7 +31,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <h1 className="text-4xl md:text-7xl lg:text-[96px] font-serif text-charcoal leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] font-serif text-charcoal leading-[1.1] tracking-tight">
               Clinically guided <br className="hidden md:block" />
               nutrition designed <br className="hidden md:block" />
               for real life.
@@ -46,12 +46,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-wrap gap-5 pt-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4"
           >
-            <button onClick={() => navigate('/services')} className="h-14 px-10 rounded-xl text-[18px] font-medium bg-primary text-[#FAF9F6] shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500">
+            <button onClick={() => navigate('/services')} className="h-14 px-8 sm:px-10 rounded-xl text-base sm:text-[18px] font-medium bg-primary text-[#FAF9F6] shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500">
               Begin Your Journey
             </button>
-            <button onClick={() => navigate('/contact')} className="h-14 px-10 rounded-xl text-[18px] font-medium border border-charcoal/20 text-charcoal hover:bg-charcoal/5 hover:border-charcoal/30 transition-all duration-500">
+            <button onClick={() => navigate('/contact')} className="h-14 px-8 sm:px-10 rounded-xl text-base sm:text-[18px] font-medium border border-charcoal/20 text-charcoal hover:bg-charcoal/5 hover:border-charcoal/30 transition-all duration-500">
               Talk to Us
             </button>
           </motion.div>

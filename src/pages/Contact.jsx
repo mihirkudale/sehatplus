@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CalendarDays } from 'lucide-react';
+
+// Replace with your actual Calendly link once set up at calendly.com
+const CALENDLY_URL = 'https://calendly.com/sehatplus';
 
 const infoCards = [
   {
@@ -25,22 +29,75 @@ const infoCards = [
   },
 ];
 
+const CONTACT_EMAIL = 'hello@sehatplus.in';
+
+const validate = (form) => {
+  const errors = {};
+  if (!form.name.trim()) errors.name = 'Name is required.';
+  else if (form.name.trim().length < 2) errors.name = 'Name must be at least 2 characters.';
+
+  if (!form.email.trim()) errors.email = 'Email is required.';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = 'Enter a valid email address.';
+
+  if (form.phone && !/^[+\d][\d\s\-()]{7,14}$/.test(form.phone))
+    errors.phone = 'Enter a valid phone number.';
+
+  if (!form.message.trim()) errors.message = 'Message is required.';
+  else if (form.message.trim().length < 10) errors.message = 'Message must be at least 10 characters.';
+
+  return errors;
+};
+
+const inputClass = (error) =>
+  `w-full bg-[#fafafa] border rounded-xl px-4 py-4 text-[14px] text-charcoal placeholder:text-charcoal/40 outline-none focus:bg-white focus:ring-2 transition-all shadow-sm ${
+    error ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : 'border-charcoal/5 focus:border-primary focus:ring-primary/20'
+  }`;
+
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [sent, setSent] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const updated = { ...form, [e.target.name]: e.target.value };
+    setForm(updated);
+    if (touched[e.target.name]) {
+      setErrors(validate(updated));
+    }
+  };
+
+  const handleBlur = (e) => {
+    setTouched((t) => ({ ...t, [e.target.name]: true }));
+    setErrors(validate({ ...form }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
+    const allTouched = { name: true, email: true, phone: true, message: true };
+    setTouched(allTouched);
+    const errs = validate(form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    const subject = encodeURIComponent(`Consultation Request from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || 'Not provided'}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
     setSent(true);
     setForm({ name: '', email: '', phone: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+    setTimeout(() => setSent(false), 5000);
   };
 
   return (
     <div className="pt-32 pb-24 bg-background min-h-screen">
+      <SEO
+        title="Contact Us"
+        path="/contact"
+        description="Book a nutrition consultation with Ambika Nair at Sehat Plus, Pune. Reach us by phone, email, or visit our clinic in Koregaon Park. Mon–Sat, 9 AM–6 PM."
+      />
       <div className="container mx-auto px-6 max-w-6xl">
 
         {/* Header */}
@@ -59,6 +116,15 @@ const Contact = () => {
           <p className="text-charcoal/60 text-sm max-w-lg mx-auto leading-relaxed">
             Ready to transform your health? Reach out for a consultation or simply ask us anything.
           </p>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-xl text-[14px] font-semibold hover:bg-primary/90 hover:shadow-lg transition-all mt-2"
+          >
+            <CalendarDays size={16} />
+            Book a Free Discovery Call
+          </a>
         </motion.div>
 
         {/* Info cards */}
@@ -73,10 +139,10 @@ const Contact = () => {
             return (
               <div
                 key={card.title}
-                className="bg-white rounded-[2rem] p-8 border border-charcoal/5 shadow-sm hover:shadow-md flex flex-col items-center text-center gap-3 transition-all hover:-translate-y-1"
+                className="group bg-white rounded-[2rem] p-8 border border-charcoal/5 shadow-sm hover:shadow-md flex flex-col items-center text-center gap-3 transition-all hover:-translate-y-1"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-1">
-                  <Icon size={20} className="text-primary" />
+                <div className="w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary flex items-center justify-center mb-1 transition-colors duration-300">
+                  <Icon size={20} className="text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
                 <p className="text-sm font-bold text-charcoal">{card.title}</p>
                 <div className="space-y-1">
@@ -130,54 +196,61 @@ const Contact = () => {
                 Message sent! We'll get back to you soon.
               </div>
             )}
-
             <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[13px] font-bold text-charcoal/70">Name</label>
+                <div className="space-y-1.5">
+                  <label className="text-[13px] font-bold text-charcoal/70">Name <span className="text-red-400">*</span></label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Your name"
-                    className="w-full bg-[#fafafa] border border-charcoal/5 rounded-xl px-4 py-4 text-[14px] text-charcoal placeholder:text-charcoal/40 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
+                    className={inputClass(errors.name)}
                   />
+                  {errors.name && <p className="text-[12px] text-red-500 font-medium">{errors.name}</p>}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[13px] font-bold text-charcoal/70">Email</label>
+                <div className="space-y-1.5">
+                  <label className="text-[13px] font-bold text-charcoal/70">Email <span className="text-red-400">*</span></label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="your@email.com"
-                    className="w-full bg-[#fafafa] border border-charcoal/5 rounded-xl px-4 py-4 text-[14px] text-charcoal placeholder:text-charcoal/40 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
+                    className={inputClass(errors.email)}
                   />
+                  {errors.email && <p className="text-[12px] text-red-500 font-medium">{errors.email}</p>}
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[13px] font-bold text-charcoal/70">Phone</label>
+              <div className="space-y-1.5">
+                <label className="text-[13px] font-bold text-charcoal/70">Phone <span className="text-charcoal/30 font-normal">(optional)</span></label>
                 <input
                   type="tel"
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="+91 98765 43210"
-                  className="w-full bg-[#fafafa] border border-charcoal/5 rounded-xl px-4 py-4 text-[14px] text-charcoal placeholder:text-charcoal/40 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
+                  className={inputClass(errors.phone)}
                 />
+                {errors.phone && <p className="text-[12px] text-red-500 font-medium">{errors.phone}</p>}
               </div>
 
-              <div className="space-y-2 flex-grow flex flex-col">
-                <label className="text-[13px] font-bold text-charcoal/70">Message</label>
+              <div className="space-y-1.5 flex-grow flex flex-col">
+                <label className="text-[13px] font-bold text-charcoal/70">Message <span className="text-red-400">*</span></label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Tell us about your health goals..."
-                  className="w-full bg-[#fafafa] border border-charcoal/5 rounded-xl px-4 py-4 text-[14px] text-charcoal placeholder:text-charcoal/40 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm resize-none flex-grow min-h-[140px]"
+                  className={`${inputClass(errors.message)} resize-none flex-grow min-h-[140px]`}
                 />
+                {errors.message && <p className="text-[12px] text-red-500 font-medium">{errors.message}</p>}
               </div>
 
               <button

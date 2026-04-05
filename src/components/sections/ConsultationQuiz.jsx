@@ -62,13 +62,13 @@ const ConsultationQuiz = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-10 space-y-3"
         >
-          <span className="text-charcoal/50 font-semibold uppercase tracking-[0.2em] text-[11px]">
+          <span className="text-charcoal/50 font-semibold uppercase tracking-[0.2em] text-[12px]">
             Begin Today
           </span>
-          <h2 className="text-4xl font-serif text-charcoal leading-tight">
+          <h2 className="text-4xl font-serif text-charcoal leading-tight tracking-tight">
             Book Your Consultation
           </h2>
-          <p className="text-primary text-sm">
+          <p className="text-charcoal/60 text-sm">
             Take the first step toward better health. We'll connect via WhatsApp for a personalised conversation.
           </p>
         </motion.div>

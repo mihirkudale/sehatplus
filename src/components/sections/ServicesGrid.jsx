@@ -186,7 +186,7 @@ const ServicesGrid = () => {
               {/* Close */}
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-charcoal/8 flex items-center justify-center hover:bg-charcoal/15 transition-colors"
+                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-charcoal/8 flex items-center justify-center hover:bg-charcoal/15 transition-colors"
               >
                 <X size={16} className="text-charcoal/60" />
               </button>
@@ -227,7 +227,7 @@ const ServicesGrid = () => {
                 </div>
 
                 {/* Duration */}
-                <div className="rounded-xl p-4 mb-8" style={{ backgroundColor: '#FAF8F5' }}>
+                <div className="rounded-xl p-4 mb-8 border border-charcoal/10 bg-background">
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-charcoal/40 mb-1">
                     Recommended Duration
                   </p>

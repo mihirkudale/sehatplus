@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import SEO from '../components/SEO';
 import Hero from '../components/sections/Hero';
 import PathSelector from '../components/sections/PathSelector';
 import SehatMethod from '../components/sections/SehatMethod';
@@ -22,6 +23,10 @@ const Home = () => {
 
   return (
     <div className="bg-background min-h-screen font-sans">
+      <SEO
+        path="/"
+        description="Sehat Plus offers medically guided, personalised nutrition plans for weight management, hormonal health, diabetes, and family wellness. Led by Ambika Nair, clinical dietitian with 32+ years of experience in Pune."
+      />
       <Hero />
       <Stats />
       <PathSelector />

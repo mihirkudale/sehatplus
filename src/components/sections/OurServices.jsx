@@ -68,7 +68,7 @@ const OurServices = () => {
           <h2 className="text-4xl md:text-[52px] font-serif text-charcoal leading-tight tracking-tight">
             Our Services
           </h2>
-          <p className="text-primary text-sm font-medium">
+          <p className="text-charcoal/60 text-sm font-medium">
             Specialised nutrition programs designed for your unique health journey
           </p>
         </motion.div>

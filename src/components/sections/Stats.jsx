@@ -55,8 +55,8 @@ const Stats = () => {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                 className="bg-white p-10 rounded-3xl shadow-sm flex flex-col items-center space-y-6 group hover:shadow-md transition-shadow duration-500"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 group-hover:bg-primary flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_18px_4px_rgba(88,124,107,0.35)]">
+                  <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-500" />
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-xl md:text-2xl font-serif text-charcoal leading-snug italic">

@@ -162,7 +162,7 @@ const stories = [
   },
   {
     badge: 'Habit Shifts',
-    badgeIcon: TrendingUp,
+    badgeIcon: Activity,
     title: 'From all-or-nothing to sustainable',
     description:
       'Building consistent, small habits that compound over time — not dramatic overhauls that fade.',
@@ -172,7 +172,7 @@ const stories = [
   },
   {
     badge: 'Report Improvements',
-    badgeIcon: Activity,
+    badgeIcon: TrendingUp,
     title: 'From concerning to optimal',
     description:
       'Watching lab values shift — HbA1c levels normalising, thyroid markers stabilising, cholesterol improving.',

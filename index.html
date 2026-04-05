@@ -2,15 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sehat Plus | Evidence-Based Clinical Nutrition</title>
+
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#587c6b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Sehat Plus" />
+
+    <!-- Primary SEO (overridden per-page by react-helmet-async) -->
+    <title>Sehat Plus | Evidence-Based Clinical Nutrition, Pune</title>
+    <meta name="description" content="Sehat Plus offers medically guided, personalised nutrition plans for weight management, hormonal health, diabetes, and family wellness. Led by Ambika Nair, clinical dietitian with 32+ years of experience in Pune." />
+    <meta name="keywords" content="clinical nutritionist pune, dietitian pune, weight management pune, diabetes nutrition, hormonal health diet, Ambika Nair" />
+    <meta name="author" content="Ambika Nair, Sehat Plus" />
+    <link rel="canonical" href="https://sehatplus.in/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sehatplus.in/" />
+    <meta property="og:site_name" content="Sehat Plus" />
+    <meta property="og:title" content="Sehat Plus | Evidence-Based Clinical Nutrition, Pune" />
+    <meta property="og:description" content="Medically guided, personalised nutrition plans for weight management, hormonal health, diabetes, and family wellness. 32+ years of clinical expertise." />
+    <meta property="og:image" content="https://sehatplus.in/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sehat Plus | Evidence-Based Clinical Nutrition, Pune" />
+    <meta name="twitter:description" content="Medically guided, personalised nutrition plans for weight management, hormonal health, diabetes, and family wellness." />
+    <meta name="twitter:image" content="https://sehatplus.in/og-image.svg" />
+
+    <!-- Schema.org structured data for local healthcare business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Sehat Plus",
+      "description": "Evidence-based clinical nutrition and lifestyle care",
+      "url": "https://sehatplus.in",
+      "telephone": "+919876543210",
+      "email": "hello@sehatplus.in",
+      "founder": {
+        "@type": "Person",
+        "name": "Ambika Nair",
+        "jobTitle": "Clinical Dietitian & Nutritionist"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Koregaon Park",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411001",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/sehatplus"
+      ]
+    }
+    </script>
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-background text-charcoal font-sans antialiased">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

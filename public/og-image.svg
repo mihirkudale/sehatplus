@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAF9F6"/>
+
+  <!-- Decorative circles right side -->
+  <circle cx="980" cy="315" r="260" fill="#587c6b" opacity="0.06"/>
+  <circle cx="980" cy="315" r="180" fill="#587c6b" opacity="0.07"/>
+  <circle cx="980" cy="315" r="100" fill="#587c6b" opacity="0.09"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="#587c6b"/>
+
+  <!-- Logo -->
+  <text x="80" y="98" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#3A332B">Sehat<tspan fill="#587c6b">Plus</tspan></text>
+
+  <!-- Divider line -->
+  <rect x="80" y="118" width="60" height="2" fill="#587c6b" opacity="0.4"/>
+
+  <!-- Headline -->
+  <text x="80" y="210" font-family="Georgia, serif" font-size="68" fill="#3A332B" font-style="italic">Clinically guided</text>
+  <text x="80" y="295" font-family="Georgia, serif" font-size="68" fill="#3A332B" font-style="italic">nutrition, designed</text>
+  <text x="80" y="380" font-family="Georgia, serif" font-size="68" fill="#587c6b" font-style="italic">for real life.</text>
+
+  <!-- Description -->
+  <text x="80" y="445" font-family="Arial, sans-serif" font-size="24" fill="#3A332B" opacity="0.55">Personalised • Medically safe • Lifestyle-led</text>
+
+  <!-- Stats row -->
+  <text x="80" y="530" font-family="Georgia, serif" font-size="42" fill="#587c6b" font-weight="600">32+</text>
+  <text x="80" y="558" font-family="Arial, sans-serif" font-size="17" fill="#3A332B" opacity="0.5">Years</text>
+
+  <text x="220" y="530" font-family="Georgia, serif" font-size="42" fill="#587c6b" font-weight="600">10K+</text>
+  <text x="220" y="558" font-family="Arial, sans-serif" font-size="17" fill="#3A332B" opacity="0.5">Lives Transformed</text>
+
+  <text x="400" y="530" font-family="Georgia, serif" font-size="42" fill="#587c6b" font-weight="600">Jupiter</text>
+  <text x="400" y="558" font-family="Arial, sans-serif" font-size="17" fill="#3A332B" opacity="0.5">Hospital Affiliated</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="596" width="1200" height="34" fill="#587c6b" opacity="0.08"/>
+  <text x="80" y="619" font-family="Arial, sans-serif" font-size="18" fill="#3A332B" opacity="0.45">sehatplus.in</text>
+  <text x="600" y="619" font-family="Arial, sans-serif" font-size="18" fill="#3A332B" opacity="0.45" text-anchor="middle">Ambika Nair • MSc Clinical Nutrition • Pune, India</text>
+</svg>
