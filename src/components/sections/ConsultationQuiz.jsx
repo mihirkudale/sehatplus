@@ -15,25 +15,18 @@ const steps = [
     ],
   },
   {
-    title: 'What is your goal?',
-    subtitle: 'Choose what matters most to you right now',
+    title: 'Preferred Time',
+    subtitle: 'When would you like to be contacted?',
     options: [
-      'Lose weight sustainably',
-      'Balance my hormones',
-      'Manage a medical condition',
-      'Build healthier habits',
-      'Improve energy & vitality',
+      'Morning (9 AM - 12 PM)',
+      'Afternoon (12 PM - 4 PM)',
+      'Evening (4 PM - 7 PM)',
     ],
   },
   {
-    title: 'How would you like to connect?',
-    subtitle: 'Choose your preferred consultation format',
-    options: [
-      'Online video consultation',
-      'In-person at clinic',
-      'WhatsApp consultation',
-      'Call me back',
-    ],
+    title: 'Confirm Your Booking',
+    subtitle: 'Please review your selections',
+    options: [],
   },
 ];
 
@@ -117,35 +110,78 @@ const ConsultationQuiz = () => {
                 <p className="text-charcoal/50 text-sm">{step.subtitle}</p>
               </div>
 
-              {/* Options */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                {step.options.map((option) => {
-                  const isSelected = selected[currentStep] === option;
-                  return (
-                    <motion.button
-                      key={option}
-                      onClick={() => handleSelect(option)}
-                      whileTap={{ scale: 0.98 }}
-                      className={`text-left px-5 py-4 rounded-2xl border text-sm font-medium transition-all duration-200 ${
-                        isSelected
-                          ? 'border-primary bg-primary/8 text-primary'
-                          : 'border-charcoal/15 bg-transparent text-charcoal hover:border-charcoal/30'
-                      }`}
-                    >
-                      {option}
-                    </motion.button>
-                  );
-                })}
-              </div>
+              {currentStep < 2 ? (
+                <>
+                  {/* Options */}
+                  <div className="grid grid-cols-1 gap-3 mb-8">
+                    {step.options.map((option) => {
+                      const isSelected = selected[currentStep] === option;
+                      return (
+                        <motion.button
+                          key={option}
+                          onClick={() => handleSelect(option)}
+                          whileTap={{ scale: 0.98 }}
+                          className={`text-left px-5 py-4 rounded-2xl border text-sm font-medium transition-all duration-200 ${
+                            isSelected
+                              ? 'border-primary bg-primary/8 text-primary'
+                              : 'border-charcoal/15 bg-transparent text-charcoal hover:border-charcoal/30'
+                          }`}
+                        >
+                          {option}
+                        </motion.button>
+                      );
+                    })}
+                  </div>
 
-              {/* Continue button */}
-              <button
-                onClick={handleContinue}
-                disabled={!selected[currentStep]}
-                className="w-full py-4 rounded-2xl bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                {currentStep < steps.length - 1 ? 'Continue' : 'Book Consultation'}
-              </button>
+                  {/* Continue button */}
+                  <div className="flex gap-3">
+                    {currentStep > 0 && (
+                      <button
+                        onClick={() => setCurrentStep(prev => prev - 1)}
+                        className="w-1/3 py-4 rounded-2xl border border-charcoal/15 text-charcoal text-sm font-medium hover:border-charcoal/30 transition-all duration-200"
+                      >
+                        Back
+                      </button>
+                    )}
+                    <button
+                      onClick={handleContinue}
+                      disabled={!selected[currentStep]}
+                      className={`${currentStep > 0 ? 'w-2/3' : 'w-full'} py-4 rounded-2xl bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed`}
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Confirmation Step */}
+                  <div className="space-y-4 mb-8">
+                    <div className="bg-charcoal/5 p-4 rounded-2xl">
+                      <p className="text-xs text-charcoal/50 uppercase tracking-widest font-semibold mb-1">Concern</p>
+                      <p className="text-charcoal font-medium">{selected[0]}</p>
+                    </div>
+                    <div className="bg-charcoal/5 p-4 rounded-2xl">
+                      <p className="text-xs text-charcoal/50 uppercase tracking-widest font-semibold mb-1">Preferred Time</p>
+                      <p className="text-charcoal font-medium">{selected[1]}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setCurrentStep(1)}
+                      className="w-1/3 py-4 rounded-2xl border border-charcoal/15 text-charcoal text-sm font-medium hover:border-charcoal/30 transition-all duration-200"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={() => navigate('/contact')}
+                      className="w-2/3 py-4 rounded-2xl bg-[#25D366] text-white text-sm font-medium hover:opacity-90 transition-all duration-200"
+                    >
+                      Book via WhatsApp
+                    </button>
+                  </div>
+                </>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

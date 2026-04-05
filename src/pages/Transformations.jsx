@@ -209,51 +209,51 @@ const Transformations = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }}
-              className="bg-white rounded-2xl border border-charcoal/8 shadow-sm overflow-hidden"
+              className="bg-white/60 backdrop-blur-md rounded-[2.5rem] border border-charcoal/5 shadow-sm overflow-hidden mb-12"
             >
               {/* Card top */}
-              <div className="p-8 pb-6">
+              <div className="p-8 md:p-12 pb-8">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <h3 className="text-2xl font-serif text-charcoal">{j.name}</h3>
+                  <h3 className="text-[28px] md:text-[32px] font-serif text-charcoal">{j.name}</h3>
                 </div>
-                <div className="flex flex-wrap items-center gap-3 mb-5">
-                  <span className="bg-charcoal/8 text-charcoal/60 text-xs font-medium px-3 py-1 rounded-full">
+                <div className="flex flex-wrap items-center gap-4 mb-8">
+                  <span className="bg-primary/10 text-primary text-xs font-bold px-4 py-1.5 rounded-full border border-primary/20">
                     {j.tag}
                   </span>
-                  <span className="flex items-center gap-1 text-xs text-charcoal/40">
-                    <Clock size={12} />
+                  <span className="flex items-center gap-1.5 text-[13px] font-medium text-charcoal/50">
+                    <Clock size={14} className="text-charcoal/40" />
                     {j.duration}
                   </span>
                 </div>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-5">{j.story}</p>
+                <p className="text-[15px] text-charcoal/70 leading-relaxed mb-8">{j.story}</p>
                 {/* Quote */}
-                <div className="rounded-xl px-5 py-4 flex gap-3 items-start" style={{ backgroundColor: '#FAF8F5' }}>
-                  <Quote size={28} className="text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm italic text-charcoal/60 leading-relaxed">
-                    "{j.quote}"
+                <div className="rounded-2xl px-6 py-5 flex gap-4 items-start bg-charcoal/5">
+                  <Quote size={20} className="text-charcoal/30 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                  <p className="text-[15px] italic text-charcoal/70 leading-relaxed">
+                    {j.quote}
                   </p>
                 </div>
               </div>
 
               {/* Metrics */}
-              <div className="border-t border-charcoal/8 px-8 py-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <Activity size={13} className="text-charcoal/40" />
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-charcoal/40">
+              <div className="border-t border-charcoal/5 px-8 md:px-12 py-10 bg-charcoal/[0.02]">
+                <div className="flex items-center gap-2 mb-6">
+                  <Activity size={14} className="text-charcoal/40" />
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-charcoal/40">
                     Health Metrics Improvement
                   </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
                   {j.metrics.map((m) => (
-                    <div key={m.label} className="rounded-xl p-4" style={{ backgroundColor: '#FAF8F5' }}>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-charcoal/40 mb-2">
+                    <div key={m.label} className="bg-white rounded-2xl p-6 shadow-sm border border-charcoal/5 group">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-charcoal/40 mb-3">
                         {m.label}
                       </p>
-                      <p className="text-xs text-charcoal/30 line-through mb-1">{m.before}</p>
-                      <div className="flex items-baseline justify-between gap-2">
-                        <p className="text-xl font-serif text-charcoal">{m.after}</p>
-                        <span className="flex items-center gap-0.5 text-xs font-medium text-primary whitespace-nowrap">
-                          <TrendingDown size={11} />
+                      <p className="text-[13px] font-medium text-charcoal/30 line-through mb-1 tracking-wide">{m.before}</p>
+                      <div className="flex items-center justify-between gap-2 mt-2">
+                        <p className="text-2xl font-serif text-charcoal">{m.after}</p>
+                        <span className="flex items-center justify-center bg-primary/10 px-2 py-1 rounded-lg gap-1 text-[11px] font-bold text-primary whitespace-nowrap">
+                          <TrendingDown size={12} strokeWidth={2.5} />
                           {m.change}
                         </span>
                       </div>
@@ -263,14 +263,14 @@ const Transformations = () => {
 
                 {/* Key Outcomes */}
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-charcoal/40 mb-3">
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-charcoal/40 mb-4">
                     Key Outcomes
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-2 gap-x-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-3 gap-x-6">
                     {j.outcomes.map((o) => (
-                      <div key={o} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-charcoal/30 flex-shrink-0" />
-                        <p className="text-xs text-charcoal/60">{o}</p>
+                      <div key={o} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                        <p className="text-[13px] text-charcoal/70 font-medium leading-relaxed">{o}</p>
                       </div>
                     ))}
                   </div>
@@ -282,14 +282,14 @@ const Transformations = () => {
       </div>
 
       {/* ── Words of Trust ───────────────────────────────── */}
-      <div className="bg-background border-t border-charcoal/8 py-20">
+      <div className="bg-background border-t border-charcoal/5 py-24 pb-32">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center mb-12 space-y-2"
+            className="text-center mb-16 space-y-3"
           >
             <h2 className="text-4xl font-serif text-charcoal">Words of Trust</h2>
             <p className="text-charcoal/50 text-sm">
@@ -297,7 +297,7 @@ const Transformations = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trustQuotes.map((t, index) => (
               <motion.div
                 key={t.name}
@@ -305,15 +305,15 @@ const Transformations = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-                className="bg-white rounded-2xl p-6 border border-charcoal/8 shadow-sm flex flex-col"
+                className="bg-white rounded-[2rem] p-10 border border-charcoal/5 shadow-sm hover:shadow-md flex flex-col transition-all duration-300"
               >
-                <Quote size={24} className="text-charcoal/25 mb-4 flex-shrink-0" />
-                <p className="text-sm text-charcoal/70 leading-relaxed flex-grow mb-5">
-                  "{t.quote}"
+                <Quote size={32} className="text-charcoal/20 mb-6 flex-shrink-0" strokeWidth={1} />
+                <p className="text-[15px] text-charcoal/70 leading-relaxed flex-grow mb-8 font-medium">
+                  {t.quote}
                 </p>
                 <div>
-                  <p className="text-sm font-semibold text-charcoal">{t.name}</p>
-                  <p className="text-xs text-charcoal/40">{t.role}</p>
+                  <p className="text-[15px] font-bold text-charcoal mb-0.5">{t.name}</p>
+                  <p className="text-[13px] font-medium text-charcoal/40">{t.role}</p>
                 </div>
               </motion.div>
             ))}

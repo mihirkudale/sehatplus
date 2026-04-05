@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#527A66',
+          DEFAULT: '#587c6b',
           light: '#6d8f7e',
           dark: '#3d5c4d',
         },
@@ -17,11 +17,13 @@ export default {
         charcoal: '#3A332B',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
+        serif: ['"Instrument Serif"', 'serif'],
         sans: ['"DM Sans"', 'sans-serif'],
       },
       borderRadius: {
         'xl': '12px',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
       }
     },
   },

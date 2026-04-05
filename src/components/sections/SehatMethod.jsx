@@ -58,15 +58,16 @@ const SehatMethod = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
+    <section id="method" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-6">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center mb-20 space-y-4"
+          className="text-center mb-14 md:mb-20 space-y-4"
         >
           <span className="text-charcoal/50 font-semibold uppercase tracking-[0.2em] text-[12px]">
             Our Approach
@@ -81,10 +82,11 @@ const SehatMethod = () => {
 
         {/* Steps */}
         <div className="relative max-w-3xl mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-charcoal/10" />
 
-          <div className="flex flex-col gap-0">
+          {/* Vertical line — left-aligned on mobile, centred on desktop */}
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-charcoal/10" />
+
+          <div className="flex flex-col">
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isLeft = step.side === 'left';
@@ -94,12 +96,12 @@ const SehatMethod = () => {
                 <motion.div
                   layout
                   onClick={() => toggle(index)}
-                  className="bg-white rounded-2xl p-8 border border-charcoal/8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300"
+                  className="bg-white rounded-2xl p-5 md:p-8 border border-charcoal/8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300"
                 >
                   <span className="text-[11px] font-semibold tracking-widest text-primary/70 uppercase">
                     {step.step}
                   </span>
-                  <h3 className="text-3xl font-serif text-charcoal mt-2 mb-1">{step.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-serif text-charcoal mt-2 mb-1">{step.title}</h3>
                   <p className="text-sm text-charcoal/50">{step.subtitle}</p>
 
                   <AnimatePresence initial={false}>
@@ -138,22 +140,32 @@ const SehatMethod = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
-                  className="relative flex items-start py-6"
+                  /* Mobile: left-padded so card clears the left icon.
+                     Desktop: no padding, alternating sides via children. */
+                  className="relative flex items-start py-4 md:py-6 pl-16 md:pl-0"
                 >
-                  {/* Left card */}
+                  {/* Left card — desktop only */}
                   {isLeft && (
-                    <div className="w-[calc(50%-48px)] mr-auto">{card}</div>
+                    <div className="hidden md:block w-[calc(50%-48px)] mr-auto">{card}</div>
                   )}
 
-                  {/* Icon circle on the line */}
-                  <div className={`absolute left-1/2 -translate-x-1/2 top-10 z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-colors duration-300 ${isOpen ? 'bg-primary border-primary' : 'bg-background border border-charcoal/15'}`}>
+                  {/* Icon circle */}
+                  <div className={`
+                    absolute z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-colors duration-300
+                    left-0 top-4
+                    md:left-1/2 md:-translate-x-1/2 md:top-8
+                    ${isOpen ? 'bg-primary' : 'bg-background border border-charcoal/15'}
+                  `}>
                     <Icon size={18} className={isOpen ? 'text-white' : 'text-primary'} />
                   </div>
 
-                  {/* Right card */}
+                  {/* Right card — desktop only */}
                   {!isLeft && (
-                    <div className="w-[calc(50%-48px)] ml-auto">{card}</div>
+                    <div className="hidden md:block w-[calc(50%-48px)] ml-auto">{card}</div>
                   )}
+
+                  {/* Mobile card — full width, always visible */}
+                  <div className="md:hidden w-full">{card}</div>
                 </motion.div>
               );
             })}

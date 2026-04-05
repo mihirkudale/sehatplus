@@ -6,15 +6,18 @@
 
 :root {
   --primary: #587c6b;
-  --background: #fdfaf5;
+  --background: #FAF9F6;
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: flex-start;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--background);
+  color: #3A332B;
+  @apply font-sans;
 }
 
 #root {

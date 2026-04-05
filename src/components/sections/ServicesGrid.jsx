@@ -19,7 +19,7 @@ const services = [
       'Menopause symptom relief strategies',
       'Fertility nutrition guidance',
     ],
-    duration: '3–6 months recommended',
+    duration: '3-6 months recommended',
   },
   {
     icon: Stethoscope,
@@ -29,11 +29,11 @@ const services = [
       'Where nutrition becomes medicine. We work alongside your physician to create therapeutic nutrition plans for complex chronic conditions.',
     included: [
       'Diabetes & blood sugar management',
-      'Hypertension & cardiac diet planning',
-      'Renal & liver nutrition support',
-      'Post-surgical recovery nutrition',
+      'Cardiovascular health protocols',
+      'Renal & liver condition support',
+      'Post-surgery recovery nutrition',
     ],
-    duration: '6–12 months recommended',
+    duration: 'Ongoing support',
   },
   {
     icon: Dna,
@@ -42,12 +42,12 @@ const services = [
     description:
       'Your genes hold the blueprint to your optimal diet. We use genetic insights to craft a nutrition plan that is uniquely yours.',
     included: [
-      'Genetic report interpretation',
-      'Personalised macro & micro targets',
-      'Food sensitivity mapping',
-      'Epigenetic lifestyle guidance',
+      'Nutrigenomics-based meal planning',
+      'Genetic predisposition analysis',
+      'Personalised macronutrient ratios',
+      'Metabolism & sensitivity profiling',
     ],
-    duration: '3–4 months recommended',
+    duration: 'Initial analysis + ongoing support',
   },
   {
     icon: Scale,
@@ -56,12 +56,12 @@ const services = [
     description:
       'Forget crash diets. Our approach focuses on sustainable fat loss and body composition improvements without deprivation.',
     included: [
-      'Metabolic rate assessment',
-      'Anti-inflammatory eating plan',
-      'Habit & behaviour coaching',
-      'Regular body composition tracking',
+      'Metabolic rate optimization',
+      'Mindful eating practices',
+      'Exercise-synced nutrition',
+      'Long-term maintenance strategies',
     ],
-    duration: '4–6 months recommended',
+    duration: '6-12 months for lasting results',
   },
   {
     icon: Users,
@@ -72,10 +72,10 @@ const services = [
     included: [
       'Age-appropriate meal planning',
       'Picky eater strategies',
-      'Allergy & intolerance management',
-      'School lunch & snack guidance',
+      'Sports nutrition for young athletes',
+      'Family meal coordination',
     ],
-    duration: '3–6 months recommended',
+    duration: 'Flexible programs',
   },
   {
     icon: Clock,
@@ -84,12 +84,12 @@ const services = [
     description:
       'Turn back the clock with nutrition science. Our anti-aging protocols target cellular health, collagen production, and oxidative stress for visible, full-body results.',
     included: [
-      'Anti-aging nutrient protocol',
-      'Collagen-supportive meal planning',
-      'Oxidative stress reduction plan',
-      'Skin & hair nutrition guidance',
+      'Skin elasticity & glow enhancement',
+      'Hair strength & regrowth nutrition',
+      'Cellular regeneration protocols',
+      'Antioxidant-rich longevity plans',
     ],
-    duration: '3–6 months recommended',
+    duration: '3-6 months for visible results',
   },
 ];
 

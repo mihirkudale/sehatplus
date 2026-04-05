@@ -44,7 +44,7 @@ const services = [
     title: 'Age Reversible Diet',
     tag: 'Skin, Hair & Full Body Rejuvenation',
     description:
-      'Turn back the clock with nutrition science. Our anti-aging protocols target cellular health, collagen production, and oxidative stress for visible, full-body results.',
+      'Turn back the clock with nutrition science. Our anti-aging protocols target cellular health, collagen production, and oxidative stress for visible, full-body rejuvenation.',
   },
 ];
 

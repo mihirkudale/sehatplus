@@ -7,22 +7,22 @@ const paths = [
   {
     icon: Activity,
     title: 'Hormonal Balance',
-    description: 'PCOS, thyroid, menopause — nutritional strategies that support hormonal health and restore natural balance.',
+    description: "PCOS, thyroid, menopause — nutritional strategies that support your body's natural rhythms.",
   },
   {
     icon: Scale,
     title: 'Weight Management',
-    description: 'Sustainable, medically-guided approaches that prioritize health markers over the number on the scale.',
+    description: 'Sustainable, medically-guided approaches that prioritize health over quick fixes.',
   },
   {
     icon: Stethoscope,
     title: 'Medical Nutrition',
-    description: 'Diabetes, heart health, post-surgery recovery — nutrition as an integral part of your medical treatment.',
+    description: 'Diabetes, heart health, post-surgery recovery — nutrition as an integral part of your treatment.',
   },
   {
     icon: Users,
     title: 'Family & Kids Wellness',
-    description: 'Building healthy habits for the whole family, from picky eaters to growing adolescents.',
+    description: 'Building healthy habits for the whole family, from picky eaters to growing athletes.',
   },
 ];
 
