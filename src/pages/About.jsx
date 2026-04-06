@@ -89,7 +89,7 @@ const About = () => {
             >
               <div className="aspect-[4/5] rounded-3xl overflow-hidden">
                 <img
-                  src="/ambika-nair.png"
+                  src="/ambika-nair.jpg"
                   alt="Ambika Nair, Founder and Lead Nutritionist at Sehat Plus"
                   loading="lazy"
                   decoding="async"

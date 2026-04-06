@@ -130,6 +130,25 @@ const trustQuotes = [
   },
 ];
 
+const beforeAfterImages = [
+  { name: "Ramesh Bhupathy", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/ramesh-768x547.jpg" },
+  { name: "Bhagyashree Deshpande", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/bhagyashree-768x547.jpg" },
+  { name: "Anirudh Kale", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/kale-768x547.jpg" },
+  { name: "Rajesh Kumar", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/rajesh-768x547.jpg" },
+  { name: "Nihar Trivedi", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/nishad-768x547.jpg" },
+  { name: "Smita Kate", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/smita-768x547.jpg" },
+  { name: "Riya Bora", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/riya-1-768x547.jpg" },
+  { name: "Rajendra Kulkarni", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/rajendra-kulkarni-768x547.jpg" },
+  { name: "Sadhana", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/sadhana-768x547.jpg" },
+  { name: "Madhuri Yenpure", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/madhuri-768x547.jpg" },
+  { name: "Kusum", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/kusum-768x547.jpg" },
+  { name: "Onkar", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/Onkar-768x547.jpg" },
+  { name: "Neeta", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/neeta-768x547.jpg" },
+  { name: "Pallavi", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/pallavi-768x547.jpg" },
+  { name: "Vijaya", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/vijaya-768x547.jpg" },
+  { name: "Pritam", url: "https://www.sehatplus.in/wp-content/uploads/2024/06/pritam-768x547.jpg" }
+];
+
 /* ── Stats bar sub-component ─────────────────────────────────── */
 const StatsBar = () => {
   const ref = useRef(null);
@@ -337,6 +356,54 @@ const Transformations = () => {
                       ))}
                     </ul>
                   </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Before & After Gallery ───────────────────────────── */}
+      <section className="py-20 md:py-28 bg-muted/10">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-4">
+              Visual Transformations
+            </h2>
+            <p className="text-charcoal/60 max-w-xl mx-auto">
+              A testament to the dedication of our patients and the power of clinical nutrition. 
+              Real progress you can see.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {beforeAfterImages.map((img, i) => (
+              <motion.div
+                key={img.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-charcoal/5 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+              >
+                <div className="aspect-[4/3] w-full relative bg-muted/30 overflow-hidden">
+                  <img
+                    src={img.url}
+                    alt={`${img.name} before & after transformation`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                <div className="p-6 text-center relative bg-white transition-colors duration-500 group-hover:bg-primary/5">
+                  <h4 className="font-serif text-lg text-charcoal group-hover:text-primary transition-colors duration-300">{img.name}</h4>
+                  <p className="text-sm text-charcoal/50 mt-1 transform group-hover:-translate-y-0.5 transition-transform duration-500">Reclaimed health and vitality</p>
                 </div>
               </motion.div>
             ))}
