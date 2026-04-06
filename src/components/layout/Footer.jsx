@@ -31,9 +31,13 @@ const Footer = () => {
 
           {/* Left — Brand */}
           <div className="flex flex-col gap-5">
-            <div className="text-2xl font-sans font-medium tracking-tight">
-              <span className="text-charcoal">Sehat</span>
-              <span className="text-primary">Plus</span>
+            <div className="flex items-center">
+              <img 
+                src="/logo.png" 
+                alt="Sehat Plus Logo" 
+                className="h-12 md:h-14 w-auto object-contain"
+                loading="lazy"
+              />
             </div>
 
             <div>

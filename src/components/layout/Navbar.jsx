@@ -31,9 +31,13 @@ const Navbar = () => {
     <nav aria-label="Main navigation" className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-xl h-16 border-b border-charcoal/5 shadow-sm' : 'bg-transparent h-20'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center h-full">
         {/* Logo */}
-        <Link to="/" aria-label="Sehat Plus – Home" className="text-2xl font-sans font-medium tracking-tight">
-          <span className="text-charcoal">Sehat</span>
-          <span className="text-primary">Plus</span>
+        <Link to="/" aria-label="Sehat Plus – Home" className="flex items-center">
+          <img 
+            src="/logo.png" 
+            alt="Sehat Plus Logo" 
+            className="h-10 md:h-12 w-auto object-contain"
+            loading="eager"
+          />
         </Link>
 
         {/* Desktop Nav */}
