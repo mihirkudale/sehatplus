@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,22 @@ import Button from '../ui/Button';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [typedText, setTypedText] = useState('');
+  const fullText = "Clinically guided^nutrition designed^for real life.";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 120);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToNext = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
@@ -31,10 +47,27 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] font-serif text-charcoal leading-[1.1] tracking-tight">
-              Clinically guided <br className="hidden md:block" />
-              nutrition designed <br className="hidden md:block" />
-              for real life.
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[96px] font-serif text-charcoal leading-[1.1] tracking-tight relative">
+              {/* Invisible placeholder to prevent layout shift */}
+              <span className="invisible">
+                Clinically guided <br className="hidden md:block" />
+                nutrition designed <br className="hidden md:block" />
+                for real life.
+              </span>
+              
+              {/* Typewriter text */}
+              <span className="absolute inset-0 pointer-events-none">
+                {typedText.split('^').map((line, index, array) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index < array.length - 1 && <br className="hidden md:block" />}
+                    {index < array.length - 1 && <span className="md:hidden"> </span>}
+                  </React.Fragment>
+                ))}
+                {typedText.length < fullText.length && (
+                  <span className="inline-block w-[3px] h-[0.8em] bg-primary ml-1 animate-pulse align-baseline" />
+                )}
+              </span>
             </h1>
             
             <p className="text-base md:text-lg text-charcoal/80 max-w-2xl leading-relaxed font-sans font-medium">

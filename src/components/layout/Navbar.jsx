@@ -17,6 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Define nav links inside or outside, they are static.
   const navLinks = [
     { title: 'Home', path: '/' },
     { title: 'About', path: '/about' },
